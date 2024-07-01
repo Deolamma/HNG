@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
-app.get("/api/hello", async (req, res) => {
+app.get("/api/hello", (req, res) => {
   const visitorName = req.query.visitor_name;
   const ip = req.ip;
   const location = "New York";
@@ -26,6 +26,5 @@ app.get("/api/hello", async (req, res) => {
     res.status(400).json({ message: "Bad Request!" });
   }
 });
-
 
 module.exports = app;
